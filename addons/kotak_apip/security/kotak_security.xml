@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<data>
+		<!-- Buat Kategori Akses -->
+		<record id="access_right_category" model="ir.module.category">
+			<field name="name">Akses Kotak Apip</field>
+			<field name="description">Akses user untuk module Training Odoo</field>
+		</record>
+
+		<record id="group_user" model="res.groups">
+			<field name="name">Pengguna</field>
+			<!-- category_id diisi berdasarkan kategori yang sudah dibuat diatas -->
+			<field name="category_id" ref="access_right_category"/>
+		</record>
+		
+		<record id="group_manager" model="res.groups">
+			<field name="name">Manager</field>
+			<field name="category_id" ref="access_right_category"/>
+			<!-- Maksudnya: group manager memiliki semua hak ases nya employee -->
+			<field name="implied_ids" eval="[(4, ref('group_pengguna'))]"/>
+			<!-- <field name="users" eval="[(4, ref('base.user_admin'))]"/> -->
+		</record>
+
+		
+	
+	</data>
+	
+
+</odoo>

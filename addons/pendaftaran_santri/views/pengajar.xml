@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+	 <!-- pengajar tree view -->
+	<record id="pengajar_view_tree" model="ir.ui.view">
+		<field name="name">pengajar.view.tree</field>
+		<field name="model">pengajar</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="street"/>
+				<field name="mobile"/>
+				<field name="email"/>
+				<field name="keahlian_ids"/>
+			</tree>
+		</field>
+	 </record>
+	<!-- pengajar form view -->
+	<record id="pengajar_view_form" model="ir.ui.view">
+		<field name="name">pengajar.view.form</field>
+		<field name="model">pengajar</field>
+		<field name="arch" type="xml">
+			<form string="">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="street"/>
+						<field name="mobile"/>
+						<field name="email"/>
+						<field name="keahlian_ids" widget="many2many_tgs"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record> 
+	<!-- pengajar action window -->
+	<record id="pengajar_action" model="ir.actions.act_window">
+		<field name="name">pengajar.action</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">pengajar</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+			</p>
+		</field>
+	</record>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="pengajar_menu_act" name="Pengajar" parent="pengaturan_menu_categ" action="pengajar_action" sequence="20"/>
+	</data>
+</odoo>

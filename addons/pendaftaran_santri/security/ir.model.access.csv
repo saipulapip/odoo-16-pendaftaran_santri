@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pendaftaran_santri_user,access_pendaftaran_santri_user,model_pendaftaran_santri,group_pengguna,1,0,1,0
+access_pendaftaran_santri_manager,access_pendaftaran_santri_manager,model_pendaftaran_santri,group_manager,1,1,1,1

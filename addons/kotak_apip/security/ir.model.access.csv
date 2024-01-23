@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cep_kotak_apip_user,access_cep_kotak_apip_user,model_cep_kotak_apip,group_user,1,1,1,1
+access_cep_kotak_apip_manager,access_cep_kotak_apip_manager,model_cep_kotak_apip,group_manager,1,0,1,0

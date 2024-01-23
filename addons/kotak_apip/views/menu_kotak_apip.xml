@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="cep_kotak_menu_root" name="CEP Kotak Apip" sequence="10" web_icon= "kotak_apip,static/description/icon.png"/>
+        
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="kotak_menu_categ" name="Kotak Apip" parent="cep_kotak_menu_root" sequence="10"/>
+        <menuitem id="setting_menu_categ" name="Pengaturan" parent="cep_kotak_menu_root" sequence="20"/>
+    
+    </data>
+    
+</odoo>

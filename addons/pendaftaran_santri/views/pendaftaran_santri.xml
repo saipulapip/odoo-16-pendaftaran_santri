@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<data>
+	  <!-- pendaftaran.santri tree view -->
+	  <record id="pendaftaran_santri_view_tree" model="ir.ui.view">
+		<field name="name">pendaftaran.santri.view.tree</field>
+		<field name="model">pendaftaran.santri</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="tempat_tgl_lahir"/>
+				<field name="user_id"/>
+				<field name="description"/>
+			</tree>
+		</field>
+	  </record>
+	   <!-- pendaftaran.santri form view -->
+	   <record id="pendaftaran_santri_view_form" model="ir.ui.view">
+		<field name="name">pendaftaran.santri.view.form</field>
+		<field name="model">pendaftaran.santri</field>
+		<field name="arch" type="xml">
+			<form string="">
+				<header>
+					<button string="Proses" name="action_confirm" type="object" class="oe_highlight" states="draft"/>
+					<button string="Selesai" name="action_done" type="object" class="oe_highlight" states="confirm"/>
+					<button string="Reset" name="action_draft" type="object" class="" states="confirm,done"/>
+					<field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+				</header>
+				<sheet>
+					<widget name="web_ribbon" text="Selesai" bg_color="bg-info" attrs="{'invisible':[('state','!=','done')]}" />
+				<group string="Pendaftaran">
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="tempat_tgl_lahir"/>
+						 <field name="jenis_kel"/>
+						 <field name="alamat"/>
+					</group>
+					<group>
+						<field name="nama_ortu"/>
+						<field name="tempat_tgl_lahir2"/>
+						<field name="pekerjaan"/>
+						<field name="mobile"/>
+					</group>
+				</group>
+			<group>
+				<group>
+					<field name="infaq"/>
+				</group>
+			</group>
+			<notebook>
+				<page name="metadata" string="Metadata">
+					<group>
+						<field name="create_uid"/>
+						<field name="create_date"/>
+						<field name="write_uid"/>
+						<field name="write_date"/>
+						<field name="id"/>
+					</group>
+				</page>
+			</notebook>
+				</sheet>
+			</form>
+		</field>
+	   </record> 
+	   <!-- pendaftaran.santri action window -->
+	   <record id="pendaftaran_santri_action" model="ir.actions.act_window">
+		<field name="name">Pendaftaran Santri</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">pendaftaran.santri</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK --> 
+			
+			</p>
+		</field>
+	   </record>
+	   <!-- This Menu Item must have a parent and an action -->
+	   <menuitem id="pendaftaran_santri_menu_action" name="Pendaftaran Santri" parent="pengaturan_menu_categ" action="pendaftaran_santri_action" sequence="10"/>
+	</data>
+	
+
+</odoo>
