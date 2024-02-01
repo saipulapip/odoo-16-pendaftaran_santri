@@ -10,7 +10,6 @@
 
 		<record id="group_pengguna" model="res.groups">
 			<field name="name">Pengguna</field>
-			<!-- category_id diisi berdasarkan kategori yang sudah dibuat diatas -->
 			<field name="category_id" ref="access_right_category"/>
 		</record>
 

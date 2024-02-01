@@ -28,11 +28,9 @@
 		'views/menu_pendaftaran.xml',
 		'views/pendaftaran_santri.xml',
 		'views/pengajar.xml',
-		# 'views/views.xml',
-		# 'views/templates.xml',
 	],
 	# only loaded in demonstration mode
 	'demo': [
-		'demo/demo.xml',
+		# 'demo/demo.xml',
 	],
 }
