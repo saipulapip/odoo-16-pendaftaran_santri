@@ -23,8 +23,8 @@
 		<field name="arch" type="xml">
 			<form string="">
 				<header>
-					<button string="Proses" name="action_confirm" type="object" class="oe_highlight" states="draft"/>
-					<button string="Selesai" name="action_done" type="object" class="oe_highlight" states="confirm"/>
+					<button string="Proses" name="action_confirm" type="object" class="oe_highlight" states="draft" groups="pendaftaran_santri.group_manager"/>
+					<button string="Selesai" name="action_done" type="object" class="oe_highlight" states="confirm" groups="pendaftaran_santri.group_admin"/>
 					<button string="Reset" name="action_draft" type="object" class="" states="confirm,done"/>
 					<field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
 				</header>
