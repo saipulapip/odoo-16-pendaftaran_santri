@@ -8,7 +8,7 @@
 			<field name="arch" type="xml">
 				<tree>
 					<!-- Add your fields here -->
-					<field name="name"/>
+					<field name="create_uid" string="name"/>
 					<field name="wilayah"/>
 					<field name="nik"/>
 					<field name="jabatan"/>
@@ -38,7 +38,7 @@
 						<widget name="web_ribbon" text="Selesai" bg_color="bg-info" attrs="{'invisible':[('state','!=','done')]}" />
 						<group string="Diisi oleh karyawan yang bersangkutan">
 							<group>
-								<field name="name"/>
+								<field name="create_uid" readonly="1" string="Nama"/>
 								<field name="wilayah"/> 
 							</group>
 							<group>
@@ -46,13 +46,10 @@
 								<field name="jabatan"/>
 							</group>
 							<group string="Permohonan Cuti">
-								<!-- <field name="jenis_cuti"/> -->
 							</group>
 						</group>
 						<group>
 							<group>
-								<!-- <field name="start"/>
-								<field name="end"/> -->
 								<field name="jml_hari"/>
 								<field name="alamat_cuti"/>
 								<field name="no_tlp"/>
@@ -67,7 +64,7 @@
 									<tree editable="bottom">
 										<field name="tanggal_cuti"/>
 										<field name="jenis_cuti"/>
-										<!-- <field name="cuti_lainya"/> -->
+										<field name="cuti_lainya"/>
 										<field name="approval" readonly="1"/>
 										<field name="approval_state_check" invisible="1"/>
 										<button string="Approve" name="action_approve" type="object" class="oe_highlight" groups="formulir_cuti.group_manager" attrs="{'invisible': ['|', ('approval', '=', 'approved'), ('approval_state_check', '=', True)]}"/>
@@ -90,7 +87,6 @@
 								<field name="jatah_cuti"/>
 								<field name="jml_cuti2"/>
 								<field name="cd_cuti"/>
-								<!-- <field name="jml_pengajuan"/> -->
 							</group>
 							<group>
 								<field name="sisa_cuti"/>

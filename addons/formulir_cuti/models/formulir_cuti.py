@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 class FormulirCuti(models.Model):
 	_name = 'formulir.cuti'
@@ -11,9 +12,6 @@ class FormulirCuti(models.Model):
 	wilayah = fields.Char(string='Wilayah', required=True)
 	nik = fields.Char(string='NIK', required=True)
 	jabatan = fields.Char(string='Jabatan')
-	# start = fields.Date(string='Tanggal Mulai', required=True)
-	# end = fields.Date(string='Tanggal akhir', required=True)
-	# jml_pengajuan = fields.Char(string='Jumlah Pengajuan Cuti ini', required=True)
 	jml_hari = fields.Char(string='Jumlah Hari')
 	alamat_cuti = fields.Char(string='Alamat Selama Cuti')
 	ttd_pemohon = fields.Binary(string='Tanda Tangan Pemohon')
@@ -90,7 +88,7 @@ class FormulirCutiLIne(models.Model):
 		('j','Cuti melahirkan (khusus wanita)'),
 		('k','Cuti pengganti hari libur'),
 		('l','Lainya'),
-		], required=True)
+		],default="a", required=True)
 	cuti_lainya = fields.Char(string='Cuti Lainya')
 	tanggal_cuti = fields.Date(string='Tanggal Cuti')
 	approval = fields.Selection(string='Approval', selection=[
@@ -111,11 +109,16 @@ class FormulirCutiLIne(models.Model):
 	def _compute_approval_state_check(self):
 		for record in self:
 			record.approval_state_check = record.cuti_id.state != 'review'
-	
 
-
-	
-	
-	
-
+	@api.constrains('tanggal_cuti','cuti_id.create_uid')
+	def _check_duplicate_cuti_date(self):
+		for rec in self:
+			duplikate_cuti = self.env['formulir.cuti.line'].search([
+				('tanggal_cuti', '=', rec.tanggal_cuti),
+				('cuti_id.create_uid', '=', rec.cuti_id.create_uid.id),
+				('id', '!=', rec.id)
+		])
+		if duplikate_cuti:
+			raise ValidationError('Hayoooo gak boleh pakai tanggal yang sama !!!!.')
+		
 	

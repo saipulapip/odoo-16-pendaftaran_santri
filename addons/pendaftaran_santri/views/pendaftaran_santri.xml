@@ -10,9 +10,10 @@
 			<tree>
 				<!-- Add your fields here -->
 				<field name="name"/>
-				<field name="tempat_tgl_lahir"/>
-				<field name="user_id"/>
-				<field name="description"/>
+				<field name="nik"/>
+				<field name="Alamat"/>
+				<field name="ayah"/>
+				<field name="ibu"/>
 			</tree>
 		</field>
 	  </record>
@@ -23,32 +24,41 @@
 		<field name="arch" type="xml">
 			<form string="">
 				<header>
-					<button string="Proses" name="action_confirm" type="object" class="oe_highlight" states="draft" groups="pendaftaran_santri.group_manager"/>
-					<button string="Selesai" name="action_done" type="object" class="oe_highlight" states="confirm" groups="pendaftaran_santri.group_admin"/>
+					<button string="Proses" name="action_confirm" type="object" class="oe_highlight" states="draft"/>
+					<button string="Selesai" name="action_done" type="object" class="oe_highlight" states="confirm"/>
 					<button string="Reset" name="action_draft" type="object" class="" states="confirm,done"/>
 					<field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
 				</header>
 				<sheet>
 					<widget name="web_ribbon" text="Selesai" bg_color="bg-info" attrs="{'invisible':[('state','!=','done')]}" />
-				<group string="Pendaftaran">
+				<group string="Data Santri">
 					<group>
 						<!-- Add your fields here -->
 						<field name="name"/>
-						<field name="tempat_tgl_lahir"/>
-						 <field name="jenis_kel"/>
-						 <field name="alamat"/>
+						<field name="jenis_kel"/>
+						<field name="tempat_lahir"/>
+						 <field name="tgl_lahir"/>
+						 <field name="image_1920" widget="image" class="oe_avatar"/>
 					</group>
 					<group>
-						<field name="nama_ortu"/>
-						<field name="tempat_tgl_lahir2"/>
-						<field name="pekerjaan"/>
-						<field name="mobile"/>
+						<field name="nik"/>
+						<field name="nik_kk"/>
+						<field name="Saudara"/>
+						<field name="dari"/>
+						<field name="Alamat"/>
 					</group>
 				</group>
-			<group>
+			<group string="Orang Tua">
 				<group>
-					<field name="infaq"/>
+					<field name="ibu"/>
+					<field name="tlpn_ibu"/>
+					<field name="ayah"/>
+					<field name="tlpn_ayah"/>
 				</group>
+			</group>
+			<group string="Pendidikan">
+				<field name="sekolah"/>
+				<field name="dituju"/>
 			</group>
 			<notebook>
 				<page name="metadata" string="Metadata">
