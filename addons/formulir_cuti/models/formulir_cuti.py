@@ -24,6 +24,7 @@ class FormulirCuti(models.Model):
 	cd_cuti = fields.Char(string='Cadangan Cuti bersama')
 	sisa_cuti = fields.Char(string='Sisa Cuti Tersedia')
 	ttd_hrd = fields.Binary(string='Tanda Tangan HRD/GA')
+	foto = fields.Binary(string='Foto Karyawan')
 	jenis_cuti = fields.Selection(string='Jenis Cuti', selection=[
 		('a','Cuti tahunan / biasa'),
 		('b','Pernikahan karyawan/ti'),
