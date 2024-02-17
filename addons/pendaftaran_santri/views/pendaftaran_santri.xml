@@ -51,8 +51,12 @@
 			<group string="Orang Tua">
 				<group>
 					<field name="ibu"/>
+					<field name="pekerjan1"/>
 					<field name="tlpn_ibu"/>
+				</group>
+				<group>
 					<field name="ayah"/>
+					<field name="pekerjan2"/>
 					<field name="tlpn_ayah"/>
 				</group>
 			</group>
