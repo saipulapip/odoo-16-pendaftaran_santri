@@ -4,7 +4,7 @@ class PendaftaranSantri(models.Model):
 	_name           = 'pendaftaran.santri'
 	_description    = 'pendaftaran.santri'
 
-	name        = fields.Char(string='Nama Santri',  compute='_compute_name', required=True)
+	name        = fields.Char(string='Nama Santri',  compute='_compute_name',)
 	jenis_kel = fields.Selection(string='Jenis Kelamin', selection=[('L', 'Laki-Laki'), ('P', 'Perempuan'),])
 	tempat_lahir = fields.Char(string='Tempat Lahir',)
 	tgl_lahir = fields.Date(string='Tanggal Lahir')
